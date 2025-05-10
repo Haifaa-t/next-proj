@@ -26,15 +26,21 @@ export default function DashboardPage() {
   if (!user || !user.email) return null
 
   return (
-    <PageContainer className={theme === 'dark' ? 'bg-gray-900' : 'bg-gradient-to-br from-blue-100 via-blue-300 to-blue-500'}>
+    <PageContainer
+      className={
+        theme === 'dark'
+          ? 'bg-gray-900'
+          : 'bg-gradient-to-br from-blue-100 via-blue-300 to-blue-500'
+      }
+    >
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className={`rounded-2xl shadow-xl p-8 w-full max-w-md space-y-6 text-center
-          ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'}`}
+        className={`rounded-2xl shadow-xl p-8 w-full max-w-md space-y-6 text-center ${
+          theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'
+        }`}
       >
-       
         <div className="flex flex-col items-center gap-4">
           {user.profilePicture ? (
             <img
@@ -56,7 +62,6 @@ export default function DashboardPage() {
           </div>
         </div>
 
-       
         <div className="flex justify-center gap-4 mt-6">
           <Link href="/profile">
             <Button label="Edit Profile" icon={<PencilIcon className="w-4 h-4" />} />
@@ -66,4 +71,3 @@ export default function DashboardPage() {
     </PageContainer>
   )
 }
-
