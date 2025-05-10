@@ -7,7 +7,6 @@ import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { UserIcon, PencilIcon } from 'lucide-react';
 import PageContainer from '@/components/PageContainer';
-import PageTitle from '@/components/PageTitle';
 import Button from '@/components/Button';
 
 export default function DashboardPage() {
