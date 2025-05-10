@@ -13,7 +13,6 @@ import PageContainer from '@/components/PageContainer'
 import PageTitle from '@/components/PageTitle'
 import Button from '@/components/Button'
 import ThemedCard from '@/components/ThemedCard'
-import InputField from '@/components/InputField'
 import { useTheme } from '@/context/ThemeContext'
 
 export default function ProfilePage() {
@@ -59,13 +58,12 @@ export default function ProfilePage() {
           <PageTitle title="Your Profile" />
           <p className="text-gray-500 dark:text-gray-300 text-center">Update your personal information</p>
 
-          
           <div className="flex justify-center">
             {profilePicture ? (
               <img
                 src={profilePicture}
                 alt="Profile Preview"
-                className="w-24 h-24 rounded-full object-cover border-4 border-blue-500 shadow-md"
+                className="w-24 h-24 rounded-full object-cover shadow-md"
               />
             ) : (
               <div className={`w-24 h-24 rounded-full flex items-center justify-center border-4 shadow-inner ${noImageStyle}`}>
@@ -74,26 +72,36 @@ export default function ProfilePage() {
             )}
           </div>
 
-          
           <div className="space-y-4 text-left">
-            <InputField
-              label="First Name"
-              value={firstName}
-              onChange={e => setFirstName(e.target.value)}
-            />
-            <InputField
-              label="Last Name"
-              value={lastName}
-              onChange={e => setLastName(e.target.value)}
-            />
-            <InputField
-              label="Profile Picture URL"
-              value={profilePicture}
-              onChange={e => setProfilePicture(e.target.value)}
-            />
+            <div>
+              <label className="text-sm font-medium">First Name</label>
+              <input
+                type="text"
+                value={firstName}
+                onChange={e => setFirstName(e.target.value)}
+                className="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              />
+            </div>
+            <div>
+              <label className="text-sm font-medium">Last Name</label>
+              <input
+                type="text"
+                value={lastName}
+                onChange={e => setLastName(e.target.value)}
+                className="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              />
+            </div>
+            <div>
+              <label className="text-sm font-medium">Profile Picture URL</label>
+              <input
+                type="text"
+                value={profilePicture}
+                onChange={e => setProfilePicture(e.target.value)}
+                className="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+              />
+            </div>
           </div>
 
-         
           <div className="flex justify-center">
             <Button
               label="Save"
@@ -102,7 +110,6 @@ export default function ProfilePage() {
             />
           </div>
 
-          
           <Link
             href="/dashboard"
             className="block mt-4 text-sm text-blue-600 dark:text-blue-400 hover:underline text-center"
